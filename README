@@ -1,0 +1,38 @@
+ctkPythonConsole
+================
+
+The ctkPythonConsole is a Python console widget for Qt.  This project contains
+files copied from the The Common Toolkit (CTK) with minor modifications added
+to allow the files to compile standalone.  The files were copied from CTK at git
+commit 76219ba324.
+
+The dependencies are:
+
+  * Qt, version >= 4.7
+  * Python, version >= 2.6
+  * PythonQt (see http://pythonqt.sourceforge.net or https://github.com/commontk/PythonQt)
+
+
+Build Instructions
+==================
+
+Install Qt and Python.  Then checkout and compile PythonQt.  Then configure
+this project with cmake and compile.  You may have to manually set the paths to
+the PythonQt library and include directory while configuring with cmake.
+
+  mkdir build
+  cd build
+  cmake ../
+  # or, cmake -DPYTHON_INCLUDE_DIR=/path-to-install/include/PythonQt -DPYTHONQT_LIBRARY=/path-to-install/libPythonQt.so ../
+
+  make
+  make install
+
+
+CTK
+===
+
+The Common Toolkit is a community effort to provide support code for medical
+image analysis, surgical navigation, and related projects.
+
+See http://commontk.org
