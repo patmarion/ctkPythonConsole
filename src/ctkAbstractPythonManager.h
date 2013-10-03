@@ -93,6 +93,9 @@ public:
   /// If the variable is not found returns a default initialized QVariant.
   QVariant getVariable(const QString& varName);
 
+  /// Adds a variable with name and value to the __main__ module.
+  void addVariable(const QString& name, const QVariant& value);
+
   /// Execute a python script with the given filename.
   void executeFile(const QString& filename);
 

@@ -416,6 +416,16 @@ QVariant ctkAbstractPythonManager::getVariable(const QString& name)
 }
 
 //-----------------------------------------------------------------------------
+void ctkAbstractPythonManager::addVariable(const QString& name, const QVariant& value)
+{
+  PythonQtObjectPtr main = ctkAbstractPythonManager::mainContext();
+  if (main)
+    {
+    return PythonQt::self()->addVariable(main, name, value);
+    }
+}
+
+//-----------------------------------------------------------------------------
 void ctkAbstractPythonManager::printStdout(const QString& text)
 {
   std::cout << qPrintable(text);
