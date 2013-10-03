@@ -854,7 +854,8 @@ QString ctkConsole::stdInRedirectCallBack(void * callData)
     return QLatin1String("");
     }
 
-  return self->readInputLine();
+  QString result = self->readInputLine();
+  return result.length() ? result : QString("\n");
 }
 
 namespace
