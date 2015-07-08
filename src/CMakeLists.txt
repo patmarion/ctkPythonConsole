@@ -40,6 +40,7 @@ install(FILES
   ctkPythonConsoleExport.h
   DESTINATION include/ctkPythonConsole)
 
-install(TARGETS
-  ctkPythonConsole
-  DESTINATION lib)
+install(TARGETS ctkPythonConsole
+        RUNTIME DESTINATION bin
+        LIBRARY DESTINATION lib
+        ARCHIVE DESTINATION lib)
