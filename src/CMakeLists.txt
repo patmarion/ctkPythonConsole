@@ -1,7 +1,6 @@
 
 
-find_package(Qt4 REQUIRED QtCore QtGui)
-include(${QT_USE_FILE})
+find_package(Qt5 REQUIRED COMPONENTS Core Gui Widgets)
 
 find_package(PythonLibs REQUIRED)
 find_package(PythonQt REQUIRED)
@@ -10,7 +9,8 @@ find_package(PythonQt REQUIRED)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${PYTHON_INCLUDE_DIRS})
 include_directories(${PYTHONQT_INCLUDE_DIR})
-
+include_directories(${Qt5Core_INCLUDE_DIRS})
+include_directories(${Qt5Widgets_INCLUDE_DIRS})
 
 set(srcs
   ctkConsole.cpp
@@ -18,7 +18,7 @@ set(srcs
   ctkAbstractPythonManager.cpp
 )
 
-qt4_wrap_cpp(moc_srcs
+qt5_wrap_cpp(moc_srcs
   ctkConsole.h
   ctkConsole_p.h
   ctkPythonConsole.h
@@ -26,7 +26,7 @@ qt4_wrap_cpp(moc_srcs
   )
 
 add_library(ctkPythonConsole ${srcs} ${moc_srcs})
-target_link_libraries(ctkPythonConsole ${QT_LIBRARIES} ${PYTHON_LIBRARIES} ${PYTHONQT_LIBRARIES})
+target_link_libraries(ctkPythonConsole Qt5::Core Qt5::Widgets ${PYTHON_LIBRARIES} ${PYTHONQT_LIBRARIES})
 set_target_properties(ctkPythonConsole PROPERTIES SOVERSION 1.0 VERSION 1.0)
 set_target_properties(ctkPythonConsole  PROPERTIES INSTALL_NAME_DIR "${CMAKE_INSTALL_PREFIX}/lib")
 
