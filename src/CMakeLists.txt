@@ -28,7 +28,6 @@ qt4_wrap_cpp(moc_srcs
 add_library(ctkPythonConsole ${srcs} ${moc_srcs})
 target_link_libraries(ctkPythonConsole ${QT_LIBRARIES} ${PYTHON_LIBRARIES} ${PYTHONQT_LIBRARIES})
 set_target_properties(ctkPythonConsole PROPERTIES SOVERSION 1.0 VERSION 1.0)
-set_target_properties(ctkPythonConsole  PROPERTIES INSTALL_NAME_DIR "${CMAKE_INSTALL_PREFIX}/lib")
 
 add_executable(console main.cpp)
 target_link_libraries(console ctkPythonConsole)
